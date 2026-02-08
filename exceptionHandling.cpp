@@ -16,18 +16,19 @@ class Base {
     int result(const Base& obj) {
         try {
             if(this->x < obj.x) {
-                throw "Exception";
+                throw exception();
             }
             return this->x + obj.x;
         }
-        catch(const char* msg) {
-            cout<<msg<<endl;
+        catch(exception& e) {
+            cout<<e.what()<<endl;
             return -1;
         }
+
     }
 };
 int main() {
-  Base b1(10, 12);
+  Base b1(14, 12);
   Base b2(12, 14);
   b1.show();
   b2.show();
